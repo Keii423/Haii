@@ -1,97 +1,184 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>For Carissa</title>
-        <style>
+
+<head>
+    <title>For Carissa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(90deg, #000000, #6dd5ed);
+            ;
+            gap: 20px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .box {
+            width: 350px;
+            padding: 30px;
+            background: #4d71e7;
+            color: white;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gaya untuk input tanggal */
+        input[type="date"] {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            width: 80%;
+            margin: 15px 0;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .btn-cek {
+            padding: 12px 25px;
+            background-color: white;
+            color: #a777e3;
+            border: none;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-cek:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        #pesan-salah {
+            color: #ffcfcf;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            display: none;
+            /* Sembunyi dulu */
+        }
+
+        @media (max-width: 756px) {
             body {
-                margin: 0;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background:linear-gradient(90deg, #000000, #6dd5ed);;
-                gap: 20px;
-                font-family: 'Segoe UI', sans-serif;
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 2.3em;
+                line-height: 1.2;
             }
 
             .box {
-                width: 350px;
-                padding: 30px;
-                background: #4d71e7;
-                color: white;
-                border-radius: 25px;
+                width: 70%;
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .box p {
+                font-size: 1.05em;
+            }
+
+            .messages {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .message-card {
+                padding: 15px;
+                font-size: 0.95em;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .gallery img {
+                height: 140px;
+            }
+
+            .music-btn {
+                padding: 10px 18px;
+                font-size: 0.85em;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .footer-text {
+                font-size: 0.85em;
                 text-align: center;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3em;
             }
 
-            /* Gaya untuk input tanggal */
-            input[type="date"] {
-                padding: 10px;
-                border-radius: 10px;
-                border: none;
-                width: 80%;
-                margin: 15px 0;
-                font-size: 1rem;
-                outline: none;
+            .box {
+                max-width: 650px;
+                padding: 25px;
             }
 
-            .btn-cek {
-                padding: 12px 25px;
-                background-color: white;
-                color: #a777e3;
-                border: none;
-                border-radius: 15px;
-                font-weight: bold;
-                cursor: pointer;
-                transition: 0.3s;
+            .messages {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
             }
 
-            .btn-cek:hover {
-                background-color: #f0f0f0;
-                transform: scale(1.05);
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
             }
 
-            #pesan-salah {
-                color: #ffcfcf;
-                font-size: 0.8rem;
-                margin-top: 10px;
-                display: none; /* Sembunyi dulu */
+            .gallery img {
+                height: 160px;
             }
-        </style>
-    </head>
-    <body>
 
-        <div class="box">
-            <h1>Hai Carissa! ✨</h1>
-            <p>Masukkan tanggal Hari ini:P</p>
-            <p>Kalo bener nanti ada hadiah Hehe, Kalo salah ya belum hari nya dongg</p>
-            <input type="date" id="tanggalInput">
-            
-            <br>
-            
-            <button class="btn-cek" onclick="validasiTanggal()">Masuk</button>
-            
-            <p id="pesan-salah">Ups! Tanggalnya salah, coba lagi ya.</p>
-        </div>
-
-        <script>
-            function validasiTanggal() {
-                const input = document.getElementById('tanggalInput').value;
-                const tanggalBenar = "2026-03-25"; // FORMAT: TAHUN-BULAN-TANGGAL
-                const pesanSalah = document.getElementById('pesan-salah');
-
-                if (input === tanggalBenar) {
-                    // Jika benar, pindah ke halaman lain
-                    window.location.href = "Page2.html"; 
-                } else {
-                    // Jika salah, munculkan pesan error
-                    pesanSalah.style.display = "block";
-                    // Animasi getar sedikit (opsional)
-                    document.querySelector('.box').style.animation = "shake 0.2s ease-in-out 2";
-                }
+            .music-btn {
+                padding: 11px 22px;
+                font-size: 0.95em;
             }
-        </script>
+        }
+    </style>
+</head>
 
-    </body>
+<body>
+
+    <div class="box">
+        <h1>Hai Carissa! ✨</h1>
+        <p>Masukkan tanggal Hari ini:P</p>
+        <p>Kalo bener nanti ada hadiah Hehe, Kalo salah ya belum hari nya dongg</p>
+        <input type="date" id="tanggalInput">
+
+        <br>
+
+        <button class="btn-cek" onclick="validasiTanggal()">Masuk</button>
+
+        <p id="pesan-salah">Ups! Tanggalnya salah, coba lagi ya.</p>
+    </div>
+
+    <script>
+        function validasiTanggal() {
+            const input = document.getElementById('tanggalInput').value;
+            const tanggalBenar = "2026-03-25"; // FORMAT: TAHUN-BULAN-TANGGAL
+            const pesanSalah = document.getElementById('pesan-salah');
+
+            if (input === tanggalBenar) {
+                // Jika benar, pindah ke halaman lain
+                window.location.href = "Page2.html";
+            } else {
+                // Jika salah, munculkan pesan error
+                pesanSalah.style.display = "block";
+                // Animasi getar sedikit (opsional)
+                document.querySelector('.box').style.animation = "shake 0.2s ease-in-out 2";
+            }
+        }
+    </script>
+
+</body>
+
 </html>
